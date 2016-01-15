@@ -85,7 +85,7 @@ class iOSGenerator(BaseGenerator):
 
 
 class ObjectiveCGenerator(iOSGenerator):
-    RESERVED_WORDS = ["int","long"]
+    RESERVED_WORDS += ["int","long"]
 
 class SwiftGenerator(iOSGenerator):
     pass
