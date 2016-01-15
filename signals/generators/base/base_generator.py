@@ -10,6 +10,7 @@ class BaseGenerator(object):
     def __init__(self, schema):
         self.schema = schema
 
+    # Check data model schema for reserved words in the language of the generated template.
     def check_reserved_words(self):
         for name, data_object in self.schema.data_objects.iteritems():
             for field in data_object.fields:

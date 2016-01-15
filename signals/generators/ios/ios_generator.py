@@ -41,7 +41,9 @@ class iOSGenerator(BaseGenerator):
             progress('Preparing to generate Swift templates')
             template_to_generate = SwiftTemplate
 
+        # Before creating data model file, ensure that no objets have 'reserved' property names.
         self.check_reserved_words()
+        
         progress("Creating data model file")
         template_to_generate(self.project_name,
                              self.schema,
@@ -85,6 +87,7 @@ class iOSGenerator(BaseGenerator):
 
 
 class ObjectiveCGenerator(iOSGenerator):
+    # List of reserved words for the Objective C language
     RESERVED_WORDS += ["int","long"]
 
 class SwiftGenerator(iOSGenerator):
