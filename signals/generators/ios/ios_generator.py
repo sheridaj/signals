@@ -26,7 +26,7 @@ class iOSGenerator(BaseGenerator):
                                               extensions=['jinja2.ext.with_'],
                                               trim_blocks=True,
                                               lstrip_blocks=True)
-
+    
     def process(self):
         if self.core_data_path is not None:
             if self.check_xcode and self.is_xcode_running():
@@ -41,6 +41,7 @@ class iOSGenerator(BaseGenerator):
             progress('Preparing to generate Swift templates')
             template_to_generate = SwiftTemplate
 
+        self.check_reserved_words()
         progress("Creating data model file")
         template_to_generate(self.project_name,
                              self.schema,
@@ -77,15 +78,14 @@ class iOSGenerator(BaseGenerator):
 
         warn("Warning: Did not find sharedDataModel().setup() call inside AppDelegate.swift")
         return False
-
+    
     @staticmethod
     def is_xcode_running():
         return "Xcode.app" in subprocess.check_output(["ps", "-Ax"])
 
 
 class ObjectiveCGenerator(iOSGenerator):
-    pass
-
+    RESERVED_WORDS = ["int","long"]
 
 class SwiftGenerator(iOSGenerator):
     pass
