@@ -88,7 +88,19 @@ class iOSGenerator(BaseGenerator):
 
 class ObjectiveCGenerator(iOSGenerator):
     # List of reserved words for the Objective C language
-    RESERVED_WORDS += ["int","long"]
+    RESERVED_WORDS += ["auto","break","case","char","const","continue","default","do",
+    "double","else","enum","extern","float","for","goto","if","inline","int","long",
+    "register","restrict","return","short","signed","sizeof","static","struct","switch",
+    "typedef","union","unsigned","void","volatile","while","_Bool","_Complex","_Imaginary"]
 
 class SwiftGenerator(iOSGenerator):
+    # List of reserved words for the Swift language
+    RESERVED_WORDS += ["class","deinit","enum","extension","func","import","init","internal",
+    "let","operator","prvate","protocol","public","static","struct","typealias","var","break",
+    "case","continue","default","do","else","fallthrough","for","if","in","return","switch",
+    "where","while","as","dynamicType","false","is","nil","self","Self","super","true",
+    "COLUMN","FILE","FUNCTION","LINE","associativity","convenience","dynamic","didSet",
+    "final","get","infix","inout","lazy","left","mutating","none","nonmutating","optional",
+    "override","postfix","precedence","prefix","Protocol","required","right","set","Type",
+    "unowned","weak']
     pass
